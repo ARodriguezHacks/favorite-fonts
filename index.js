@@ -1,4 +1,6 @@
 const results = document.getElementById('results');
+const head = document.getElementById('head');
+let newStyleSheet = document.createElement('link');
 //let showFonts;
 let fonts;
 
@@ -13,7 +15,9 @@ const showFonts = async function() {
   
   //getting the data
   await fetchFonts();
-  
+  let fontsUrl = 'https://fonts.googleapis.com/css?family=';
+  let fontUrlEnding = '&display=swap';
+  let fontsArray = [];
   //creating the structure
   const main = document.createElement('main');
   main.classList.add('fonts');
@@ -29,8 +33,9 @@ const showFonts = async function() {
       fontCard.style.display = "block";
 
       fontName.textContent = font.family;
+      fontsArray.push(font.family);
       //Verdana is a working substitute while resolving the grabbing of Google fonts files
-      fontName.style.fontFamily = 'Verdana';
+      fontName.style.fontFamily = font.family;
 
       fontAuthor.textContent = "Designer";
 
@@ -50,6 +55,14 @@ const showFonts = async function() {
       //li.innerHTML = font.family;
       //ul.appendChild(li);
     })
+
+    const output = fontsArray.join('|');
+    let newLink = fontsUrl + output + fontUrlEnding;
+    newStyleSheet.href = newLink;
+    newStyleSheet.rel = "stylesheet";
+
+    head.appendChild(newStyleSheet);
+
     results.appendChild(main);
 }
 
