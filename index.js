@@ -1,7 +1,9 @@
+//import { changeToInput } from './modules/textInput.mjs';
+
 const results = document.getElementById('results');
 const head = document.getElementById('head');
 let newStyleSheet = document.createElement('link');
-//let showFonts;
+
 let fonts;
 
 const fetchFonts = async () => {
@@ -17,7 +19,8 @@ const showFonts = async function() {
   await fetchFonts();
   let fontsUrl = 'https://fonts.googleapis.com/css?family=';
   let fontUrlEnding = '&display=swap';
-  let fontsArray = [];
+  const fontsArray = [];
+  let offset = 0;
   //creating the structure
   const main = document.createElement('main');
   main.classList.add('fonts');
@@ -31,15 +34,17 @@ const showFonts = async function() {
 
       fontCard.classList.add('font-family');
       fontCard.style.display = "block";
+      fontCard.style.animation = "cardfade 1s";
 
       fontName.textContent = font.family;
       fontsArray.push(font.family);
-      //Verdana is a working substitute while resolving the grabbing of Google fonts files
+
       fontName.style.fontFamily = font.family;
 
       fontAuthor.textContent = "Designer";
 
       fontText.textContent = "Then came the night of the first falling star.";
+      //fontText.onclick = changeToInput();
 
       fontButton.textContent = "+";
       fontButton.style.borderRadius = "50%";
@@ -49,15 +54,18 @@ const showFonts = async function() {
       fontCard.appendChild(fontText);
       fontCard.appendChild(fontButton);
 
-      main.appendChild(fontCard);
+      //main.appendChild(fontCard);
 
-      //li.classList.add('font-family');
-      //li.innerHTML = font.family;
-      //ul.appendChild(li);
-    })
+      window.setTimeout( () => {
+        main.appendChild(fontCard);
+      }, 1000 + offset);
+      offset += 1000;
+
+    });
 
     const output = fontsArray.join('|');
     let newLink = fontsUrl + output + fontUrlEnding;
+
     newStyleSheet.href = newLink;
     newStyleSheet.rel = "stylesheet";
 
@@ -66,4 +74,5 @@ const showFonts = async function() {
     results.appendChild(main);
 }
 
-showFonts();
+
+window.onload = showFonts;
