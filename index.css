@@ -20,15 +20,35 @@ main {
     clear: both;
 }
 
+#searchBar {
+    width: 80%;
+    margin: 0 auto;
+    border: .125rem solid blue;
+    border-radius: 2rem;
+}
+
+.searchInput {
+    width: 30%;
+    line-height: 2rem;
+}
+
+.searchBtn {
+    display: inline;
+}
+
+#input1, #input2 {
+    margin-left: 1rem;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    border-right: 2px solid black;
+}
+
 .navItem {
     float: left;
     margin-right: 1rem;
     text-transform: uppercase;
     list-style: none;
-}
-
-#searchBar {
-    width: 100%;
 }
 
 .fonts {

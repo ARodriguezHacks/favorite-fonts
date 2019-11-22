@@ -19,7 +19,16 @@
             </ul>
         </nav>
         <main>
-            <div id="searchBar"></div>
+            <form id="searchBar">
+                <input type="search" class="searchInput" id="input1" placeholder="Search fonts" />
+                <input type="text" class="searchInput" id="input2" placeholder="Type something" />
+                <select id="menuBtn" onchange="changeSize(this)">
+                    <option value="14px" selected="selected">14px</option>
+                    <option value="20px">20px</option>
+                    <option value="24px">24px</option>
+                    <option value="32px">32px</option>
+                </select>
+            </form>
             <section id="results">
             </section>            
         </main>

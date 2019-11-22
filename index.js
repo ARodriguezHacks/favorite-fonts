@@ -2,6 +2,7 @@
 
 const results = document.getElementById('results');
 const head = document.getElementById('head');
+const options = document.getElementsByTagName('option');
 let newStyleSheet = document.createElement('link');
 
 let fonts;
@@ -44,6 +45,10 @@ const showFonts = async function() {
       fontAuthor.textContent = "Designer";
 
       fontText.textContent = "Then came the night of the first falling star.";
+      fontText.classList.add('text');
+      fontText.style.fontSize = options[0].value;
+
+      
       //fontText.onclick = changeToInput();
 
       fontButton.textContent = "+";
@@ -54,12 +59,12 @@ const showFonts = async function() {
       fontCard.appendChild(fontText);
       fontCard.appendChild(fontButton);
 
-      //main.appendChild(fontCard);
+      main.appendChild(fontCard);
 
-      window.setTimeout( () => {
-        main.appendChild(fontCard);
-      }, 1000 + offset);
-      offset += 1000;
+      //window.setTimeout( () => {
+        //main.appendChild(fontCard);
+      //}, 1000 + offset);
+      //offset += 1000;
 
     });
 
@@ -74,5 +79,8 @@ const showFonts = async function() {
     results.appendChild(main);
 }
 
+function changeSize(font) {
+  document.getElementsByTagName('p').style.fontSize = font.value;
+}
 
 window.onload = showFonts;
