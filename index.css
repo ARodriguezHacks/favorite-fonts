@@ -70,6 +70,43 @@ main {
     box-shadow: 0 0 5px gray;
 }
 
+.fontBtn {
+    position: relative;
+    left: 15rem;
+    bottom: 1rem;
+}
+
+.fontPara {
+    border-bottom: 1px solid gray;
+}
+
+
+/*
+[contenteditable='true']:hover {
+    cursor: text;
+}
+ 
+[contenteditable='true']:empty::before {
+    content: "Then came the night of the first falling star.";
+}
+
+[contenteditable='true']:focus {
+    outline: none;
+    caret-color: red;
+}
+/*
+.no-outline {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+.no-outline:focus {
+    outline: none;
+}
+*/
+
 footer {
     clear: both;
 }

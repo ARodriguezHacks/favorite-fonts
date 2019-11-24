@@ -19,4 +19,6 @@ export function changeToInput() {
       main.removeChild(submitBtn);
     }
   
-  }
+}
+
+export { changeToInput };
