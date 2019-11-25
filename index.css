@@ -18,6 +18,7 @@ html, body {
 
 main {
     clear: both;
+    margin-bottom: 6rem;
 }
 
 #searchBar {
@@ -71,9 +72,8 @@ main {
 }
 
 .fontBtn {
-    position: relative;
-    left: 15rem;
-    bottom: 1rem;
+    float: right;
+    margin-right: 1rem;
 }
 
 .fontPara {
@@ -109,4 +109,13 @@ main {
 
 footer {
     clear: both;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    background-color: pink;
 }

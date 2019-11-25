@@ -45,8 +45,14 @@ const showFonts = async function() {
       //fontText.type = "text";
       fontText.classList.add('fontPara');
       fontText.contentEditable = "true";
-      fontText.style.display = "inline";
+      //fontText.style.display = "inline";
       fontText.textContent = "Then came the night of the first falling star.";
+      fontText.style.fontFamily = font.family;
+      fontText.addEventListener('blur', () => {
+        if (fontText.textContent == '') {
+          fontText.textContent = "Then came the night of the first falling star.";
+        };
+      });
 
       //fontText.classList.add('no-outline');
       fontText.style.fontSize = options[0].value;
