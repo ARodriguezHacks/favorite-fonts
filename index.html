@@ -7,32 +7,38 @@
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <nav>
+        <header>
             <div id="logo">
                 <h3>Google Fonts</h3>
             </div>
-            <ul id="mainNav">
-                <li class="navItem">Catalog</li>
-                <li class="navItem">Featured</li>
-                <li class="navItem">Articles</li>
-                <li class="navItem">About</li>
-            </ul>
+            <nav id="mainNav">
+                <a href="#" class="navItem">Catalog</a>
+                <a href="#" class="navItem">Featured</a>
+                <a href="#" class="navItem">Articles</a>
+                <a href="#" class="navItem">About</a>
+            </nav>
+        </header>
+        <nav id="searchBar">
+            <input type="search" class="searchInput" id="input1" placeholder="Search fonts" />
+            <input type="text" class="searchInput" id="input2" placeholder="Type something" />
+            <select id="menuBtn" onchange="changeSize(this)">
+                <option value="14px" selected="selected">14px</option>
+                <option value="20px">20px</option>
+                <option value="24px">24px</option>
+                <option value="32px">32px</option>
+            </select>
+            <div id="light-dark-mode">
+                <button type="button" class="nav-btn light-dark" id="circle1"></button>
+                <button type="button" class="nav-btn light-dark" id="circle2"></button>
+            </div>
+            <button type="button" id="list-grid"><img src="https://img.icons8.com/metro/24/000000/list.png" alt="list-drid icon" /></button>
+            <button type="submit" id="reset" onclick="reset()"><img src="https://img.icons8.com/material-sharp/24/000000/recurring-appointment.png" alt="reset button" /></button>
         </nav>
-        <main>
-            <form id="searchBar">
-                <input type="search" class="searchInput" id="input1" placeholder="Search fonts" />
-                <input type="text" class="searchInput" id="input2" placeholder="Type something" />
-                <select id="menuBtn" onchange="changeSize(this)">
-                    <option value="14px" selected="selected">14px</option>
-                    <option value="20px">20px</option>
-                    <option value="24px">24px</option>
-                    <option value="32px">32px</option>
-                </select>
-            </form>
-            <section id="results">
-            </section>            
+        <main id="main">
+            <section id="results" class="fonts">
+            </section>
         </main>
-        <footer id="footer">coded by by ARodriguezHacks | 2019 | Chingu Pre-Work Project</footer>
+        <footer id="footer">coded by ARodriguezHacks | 2019 | Chingu Pre-Work Project</footer>
         <script src="index.js"></script>
     </body>
 </html>

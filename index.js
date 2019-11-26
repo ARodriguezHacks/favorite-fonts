@@ -1,9 +1,10 @@
-//import { changeToInput } from './modules/textInput.mjs';
-
-const results = document.getElementById('results');
 const head = document.getElementById('head');
+const typeSomethingInput = document.getElementById('input2');
 const selectEl = document.getElementById('menuBtn');
 const options = document.getElementsByTagName('option');
+const main = document.getElementById('main');
+const results = document.getElementById('results');
+
 let newStyleSheet = document.createElement('link');
 
 let fonts;
@@ -20,9 +21,6 @@ const showFonts = async function() {
   let fontsUrl = 'https://fonts.googleapis.com/css?family=';
   let fontUrlEnding = '&display=swap';
   const fontsArray = [];
-  //creating the structure
-  const main = document.createElement('main');
-  main.classList.add('fonts');
   
   fonts.items.forEach(font => {
       const fontCard = document.createElement('div');
@@ -42,10 +40,8 @@ const showFonts = async function() {
 
       fontAuthor.textContent = "Designer";
 
-      //fontText.type = "text";
       fontText.classList.add('fontPara');
       fontText.contentEditable = "true";
-      //fontText.style.display = "inline";
       fontText.textContent = "Then came the night of the first falling star.";
       fontText.style.fontFamily = font.family;
       fontText.addEventListener('blur', () => {
@@ -54,10 +50,7 @@ const showFonts = async function() {
         };
       });
 
-      //fontText.classList.add('no-outline');
       fontText.style.fontSize = options[0].value;
-
-      //fontText.onclick = changeToInput();
 
       fontButton.textContent = "+";
       fontButton.style.borderRadius = "50%";
@@ -68,7 +61,7 @@ const showFonts = async function() {
       fontCard.appendChild(fontAuthor);
       fontCard.appendChild(fontText);
 
-      main.appendChild(fontCard);
+      results.appendChild(fontCard);
   });
 
     const output = fontsArray.join('|');
@@ -79,7 +72,7 @@ const showFonts = async function() {
 
     head.appendChild(newStyleSheet);
 
-    results.appendChild(main);
+    main.appendChild(results);
 }
 
 showFonts();
@@ -90,10 +83,33 @@ function changeSize(font) {
   arr.forEach( item => {
     item.style.fontSize = font.value;
   });
-  //results..style.fontSize = font.value;
 }
 
-//const finalOutput = async () => {
-  //await showFonts();
+typeSomethingInput.addEventListener('input', e => {
+  var children = document.getElementsByClassName('fontPara');
+  var arr = Array.prototype.slice.call(children);
+  arr.forEach( item => {
+    item.textContent = e.target.value;
+  });
+});
 
-//}
+typeSomethingInput.addEventListener('blur', () => {
+  var children = document.getElementsByClassName('fontPara');
+  var arr = Array.prototype.slice.call(children);
+  if ( typeSomethingInput.value == '') {
+    arr.forEach( item => {
+      item.textContent = "Then came the night of the first falling star.";
+    });
+  }
+});
+
+function reset() {
+  typeSomethingInput.value = '';
+  selectEl[0].selected = "selected";
+  var children = document.getElementsByClassName('fontPara');
+  var arr = Array.prototype.slice.call(children);
+    arr.forEach( item => {
+      item.style.fontSize = selectEl[0].value;
+      item.textContent = "Then came the night of the first falling star.";
+    });
+}
