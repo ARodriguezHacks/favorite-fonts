@@ -1,8 +1,8 @@
-# Favorite Fonts Landing Page Project
+# Favorite Fonts Project
 
-This project re-creates the Google Fonts landing page. No frameworks involved, this project attempts to faithfully bring to life a working fonts website relying heavily on the Google Fonts API.
+Favorute Fonts re-creates the Google Fonts landing page. No frameworks involved, this project attempts to faithfully bring to life a working fonts website relying heavily on the Google Fonts API.
 
-![Favorite Fonts 1](assets/images/Fav_Fonts_1.png)
+![Favorite Fonts 1](assets/imgs/Fav_Fonts_1.png)
 
 ## Current Features:
 * Change text for each font card simultaneously by using the "Type Something" input field.
@@ -29,7 +29,7 @@ or
 
 `$ git clone https://github.com/ARodriguezHacks/google-fonts-tier1.git your-preferred-name-for-project`
 
-![Favorite Fonts 3](assets/images/Fav_Fonts_3.png)
+![Favorite Fonts 3](assets/imgs/Fav_Fonts_3.png)
 
 ## How to Contribute
 
