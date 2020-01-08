@@ -56,35 +56,31 @@ async function fetchFonts() {
 
  function createFontsArray(prom1) {
     return new Promise((resolve, reject) => {
-        setTimeout( () => {
-            prom1.items.forEach(font => {
-                fontsArray.push(font.family);
-            });
-            if (prom1) {
-                resolve(fontsArray);
-            }
-            else {
-                reject("Unable to generate fonts...");
-            }
-        }, 500);
+        prom1.items.forEach(font => {
+            fontsArray.push(font.family);
+        });
+        if (prom1) {
+            resolve(fontsArray);
+        }
+        else {
+            reject("Unable to generate fonts...");
+        }
     });
 }
 
  function createStyleSheet(prom2) {
     return new Promise((resolve, reject) => {
-        setTimeout( () => {
-            const items = prom2.join('|');
-            let newLink = fontsUrl + items + fontUrlEnding;
-            newStyleSheet.href = newLink;
-            newStyleSheet.rel = "stylesheet";
-            head.appendChild(newStyleSheet);
-            if (newStyleSheet.href.length != 0) {
-                resolve(newStyleSheet);
-            }
-            else {
-                reject("Stylesheet couldn't be loaded.")
-            }
-        }, 500);
+        const items = prom2.join('|');
+        let newLink = fontsUrl + items + fontUrlEnding;
+        newStyleSheet.href = newLink;
+        newStyleSheet.rel = "stylesheet";
+        head.appendChild(newStyleSheet);
+        if (newStyleSheet.href.length != 0) {
+            resolve(newStyleSheet);
+        }
+        else {
+            reject("Stylesheet couldn't be loaded.")
+        }
     });
 }
 
@@ -136,10 +132,9 @@ function loadFontCards(stylesheet) {
             else {
                 reject("Error!");
             }
-        }, 1000);
+        }, 150);
     });
 }
-
 
 async function updateDom() {
     let grabFonts = await fetchFonts();
