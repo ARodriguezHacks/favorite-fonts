@@ -1,6 +1,12 @@
-@keyframes cardfade {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+@keyframes font-family {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 html, body {
@@ -126,6 +132,7 @@ main {
     align-items: center;
     list-style: none;
     box-shadow: 0 0 5px gray;
+    opacity: 0;
 }
 
 .fontBtn {
